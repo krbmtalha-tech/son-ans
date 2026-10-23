@@ -122,7 +122,7 @@
                 <button onclick="handleYes()" id="yes-btn" class="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-rose-600 to-pink-600 font-bold text-sm sm:text-base rounded-2xl shadow-xl shadow-rose-900/50 transition-all z-10">
                     Evet! 🫶
                 </button>
-                <button id="no-btn" onmouseover="dodgeButton()" ontouchstart="dodgeButton(); event.preventDefault();" onclick="dodgeButton(); event.preventDefault();" class="px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 border border-white/20 font-semibold text-sm sm:text-base rounded-2xl transition-all duration-200">
+                <button id="no-btn" onmouseover="dodgeButton()" ontouchstart="dodgeButton(); event.preventDefault();" class="px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 border border-white/20 font-semibold text-sm sm:text-base rounded-2xl transition-all duration-200">
                     Hayır 🙈
                 </button>
             </div>
@@ -141,6 +141,22 @@
             </p>
             <div class="p-3.5 sm:p-4 bg-white/5 rounded-2xl border border-white/10 text-rose-200 text-xs sm:text-sm">
                 "Kırılan kalpler doğru sevgiyle onarıldığında eskisinden de güçlü bağlar kurarmış." 🌹
+            </div>
+        </div>
+
+        <!-- Step 6: Rejection Screen -->
+        <div id="step-6" class="glass-card rounded-3xl p-6 sm:p-8 shadow-2xl text-center hidden transform transition-all duration-700">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 bg-slate-800/50 rounded-full flex items-center justify-center mx-auto mb-5 border border-slate-700/50">
+                <span class="text-4xl sm:text-5xl">🕊️</span>
+            </div>
+            <h2 class="font-serif-custom text-2xl sm:text-3xl font-bold mb-3 text-white">
+                Kararına Saygı Duyuyorum
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5">
+                Hislerimi ve özrümü paylaşmak benim için en önemli adımdı. Cevabın mail olarak bana iletildi. Kalbini kırdığım için tekrar özür dilerim, her şeyin gönlünce olmasını dilerim... ✨
+            </p>
+            <div class="p-3.5 sm:p-4 bg-white/5 rounded-2xl border border-white/10 text-slate-300 text-xs sm:text-sm">
+                "Bazen en doğru adım, karşısındakinin kararına saygı duymaktır." 🤍
             </div>
         </div>
 
@@ -177,18 +193,26 @@
             }, 300);
         }
 
-        // Safe Mobile-Friendly Dodge Logic for "Hayır" Button
+        // Playful Dodge Logic for "Hayır" Button with Catch Limit
+        let dodgeCount = 0;
         function dodgeButton() {
             const noBtn = document.getElementById('no-btn');
-            // Mobilde ekrandan taşmayacak güvenli küçük mesafeler
-            const randomX = (Math.random() - 0.5) * 140;
-            const randomY = (Math.random() - 0.5) * 80;
-            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            dodgeCount++;
+            
+            if (dodgeCount <= 3) {
+                // İlk 3 denemede kaçar
+                const randomX = (Math.random() - 0.5) * 140;
+                const randomY = (Math.random() - 0.5) * 80;
+                noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            } else {
+                // 3 kereden sonra pes eder ve tıklanarak reddetme ekranına götürür
+                noBtn.style.transform = 'translate(0px, 0px)';
+                noBtn.onclick = handleNo;
+            }
         }
 
         // Yes Button Trigger & Email Notification
         function handleYes() {
-            // Confetti explosion
             confetti({
                 particleCount: 150,
                 spread: 80,
@@ -196,7 +220,6 @@
                 colors: ['#f43f5e', '#fb7185', '#ffffff', '#fda4af']
             });
 
-            // Send email notification via Formspree AJAX using correct endpoint ID
             fetch('https://formspree.io/f/mbgglrln', {
                 method: 'POST',
                 headers: {
@@ -213,6 +236,26 @@
             });
 
             nextStep(5);
+        }
+
+        // No Button Trigger & Email Notification
+        function handleNo() {
+            fetch('https://formspree.io/f/mbgglrln', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    subject: 'Üzgünüm... Teklif Reddedildi 😢',
+                    message: 'Karşı taraf teklifine maalesef Hayır dedi.',
+                    timestamp: new Date().toLocaleString('tr-TR')
+                })
+            }).catch(error => {
+                console.log('Rejection notification sent');
+            });
+
+            nextStep(6);
         }
     </script>
 </body>
