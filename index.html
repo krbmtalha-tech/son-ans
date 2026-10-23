@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Senin İçin... ❤️</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,6 +13,7 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
+            touch-action: manipulation;
         }
         .font-serif-custom {
             font-family: 'Playfair Display', serif;
@@ -35,110 +36,110 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-950 via-rose-950 to-purple-950 min-h-screen text-white flex items-center justify-center p-4 overflow-x-hidden relative select-none">
+<body class="bg-gradient-to-br from-slate-950 via-rose-950 to-purple-950 min-h-screen text-white flex items-center justify-center p-4 overflow-hidden relative select-none">
 
     <!-- Falling Hearts Container -->
     <div id="hearts-container" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
 
     <!-- Main Container -->
-    <main class="relative z-10 w-full max-w-lg mx-auto">
+    <main class="relative z-10 w-full max-w-md mx-auto px-2">
         
         <!-- Step 0: Welcome / Sincere Apology -->
-        <div id="step-0" class="glass-card rounded-3xl p-8 shadow-2xl text-center transform transition-all duration-700">
-            <div class="w-20 h-20 bg-rose-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-rose-500/30 pulse-slow">
-                <span class="text-4xl">🥺</span>
+        <div id="step-0" class="glass-card rounded-3xl p-6 sm:p-8 shadow-2xl text-center transform transition-all duration-700">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 bg-rose-500/20 rounded-full flex items-center justify-center mx-auto mb-5 border border-rose-500/30 pulse-slow">
+                <span class="text-3xl sm:text-4xl">🥺</span>
             </div>
-            <h1 class="font-serif-custom text-3xl font-bold mb-4 bg-gradient-to-r from-rose-200 via-pink-300 to-white bg-clip-text text-transparent">
+            <h1 class="font-serif-custom text-2xl sm:text-3xl font-bold mb-3 bg-gradient-to-r from-rose-200 via-pink-300 to-white bg-clip-text text-transparent">
                 Küçük Bir Özür & İtiraf
             </h1>
-            <p class="text-rose-100/80 text-base leading-relaxed mb-8">
+            <p class="text-rose-100/80 text-sm sm:text-base leading-relaxed mb-6">
                 Aramızda istemeden oluşan o mesafenin ve kırdığım kalbin yükünü taşıyorum günlerdir. Sana bu özel sayfayı hazırladım çünkü hislerimi ve pişmanlığımı en saf haliyle anlatmak istedim...
             </p>
-            <button onclick="nextStep(1)" class="w-full py-4 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 font-semibold rounded-2xl shadow-lg shadow-rose-900/40 transition-all transform hover:scale-[1.02] active:scale-[0.98]">
+            <button onclick="nextStep(1)" class="w-full py-3.5 sm:py-4 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 font-semibold rounded-2xl shadow-lg shadow-rose-900/40 transition-all transform active:scale-[0.98]">
                 Hikayemize Devam Edelim 🤍
             </button>
         </div>
 
         <!-- Step 1: Reflective Question 1 -->
-        <div id="step-1" class="glass-card rounded-3xl p-8 shadow-2xl text-center hidden transform transition-all duration-700">
-            <span class="text-rose-400 font-semibold text-sm tracking-widest uppercase mb-2 block">1. Adım</span>
-            <h2 class="font-serif-custom text-2xl font-bold mb-6 text-white">
+        <div id="step-1" class="glass-card rounded-3xl p-6 sm:p-8 shadow-2xl text-center hidden transform transition-all duration-700">
+            <span class="text-rose-400 font-semibold text-xs sm:text-sm tracking-widest uppercase mb-2 block">1. Adım</span>
+            <h2 class="font-serif-custom text-xl sm:text-2xl font-bold mb-6 text-white leading-snug">
                 Seni ne kadar çok önemsediğimi ve değer verdiğimi içten içe biliyorsun değil mi?
             </h2>
             <div class="space-y-3">
-                <button onclick="nextStep(2)" class="w-full py-4 bg-white/10 hover:bg-white/20 border border-white/20 font-medium rounded-2xl transition-all">
+                <button onclick="nextStep(2)" class="w-full py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-sm sm:text-base font-medium rounded-2xl transition-all">
                     Evet, bunu biliyorum ve hissediyorum ✨
                 </button>
-                <button onclick="nextStep(2)" class="w-full py-4 bg-white/10 hover:bg-white/20 border border-white/20 font-medium rounded-2xl transition-all">
+                <button onclick="nextStep(2)" class="w-full py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-sm sm:text-base font-medium rounded-2xl transition-all">
                     Kusurlarımı bilmeme rağmen kalbini açtın bana... 🌹
                 </button>
             </div>
         </div>
 
         <!-- Step 2: Reflective Question 2 -->
-        <div id="step-2" class="glass-card rounded-3xl p-8 shadow-2xl text-center hidden transform transition-all duration-700">
-            <span class="text-rose-400 font-semibold text-sm tracking-widest uppercase mb-2 block">2. Adım</span>
-            <h2 class="font-serif-custom text-2xl font-bold mb-6 text-white">
+        <div id="step-2" class="glass-card rounded-3xl p-6 sm:p-8 shadow-2xl text-center hidden transform transition-all duration-700">
+            <span class="text-rose-400 font-semibold text-xs sm:text-sm tracking-widest uppercase mb-2 block">2. Adım</span>
+            <h2 class="font-serif-custom text-xl sm:text-2xl font-bold mb-6 text-white leading-snug">
                 Birlikte konuştuğumuz, bakıştığımız o eski güzel anıları sen de benim kadar özledin mi?
             </h2>
             <div class="space-y-3">
-                <button onclick="nextStep(3)" class="w-full py-4 bg-white/10 hover:bg-white/20 border border-white/20 font-medium rounded-2xl transition-all">
+                <button onclick="nextStep(3)" class="w-full py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-sm sm:text-base font-medium rounded-2xl transition-all">
                     Çok özledim, o günler çok özeldi 💭
                 </button>
-                <button onclick="nextStep(3)" class="w-full py-4 bg-white/10 hover:bg-white/20 border border-white/20 font-medium rounded-2xl transition-all">
+                <button onclick="nextStep(3)" class="w-full py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-sm sm:text-base font-medium rounded-2xl transition-all">
                     Hâlâ kalbimde o anıların yeri çok ayrı... 💫
                 </button>
             </div>
         </div>
 
         <!-- Step 3: Reflective Question 3 -->
-        <div id="step-3" class="glass-card rounded-3xl p-8 shadow-2xl text-center hidden transform transition-all duration-700">
-            <span class="text-rose-400 font-semibold text-sm tracking-widest uppercase mb-2 block">3. Adım</span>
-            <h2 class="font-serif-custom text-2xl font-bold mb-6 text-white">
+        <div id="step-3" class="glass-card rounded-3xl p-6 sm:p-8 shadow-2xl text-center hidden transform transition-all duration-700">
+            <span class="text-rose-400 font-semibold text-xs sm:text-sm tracking-widest uppercase mb-2 block">3. Adım</span>
+            <h2 class="font-serif-custom text-xl sm:text-2xl font-bold mb-6 text-white leading-snug">
                 Hatalarımızdan ders çıkarıp daha güzel bir sayfa açabileceğimize inanıyor musun?
             </h2>
             <div class="space-y-3">
-                <button onclick="nextStep(4)" class="w-full py-4 bg-white/10 hover:bg-white/20 border border-white/20 font-medium rounded-2xl transition-all">
+                <button onclick="nextStep(4)" class="w-full py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-sm sm:text-base font-medium rounded-2xl transition-all">
                     İçtenliğine inanmak istiyorum... 🕊️
                 </button>
-                <button onclick="nextStep(4)" class="w-full py-4 bg-white/10 hover:bg-white/20 border border-white/20 font-medium rounded-2xl transition-all">
+                <button onclick="nextStep(4)" class="w-full py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-sm sm:text-base font-medium rounded-2xl transition-all">
                     Hatalar insana mahsus, devam edelim 🤍
                 </button>
             </div>
         </div>
 
         <!-- Step 4: The Big Question Screen -->
-        <div id="step-4" class="glass-card rounded-3xl p-8 shadow-2xl text-center hidden transform transition-all duration-700">
-            <div class="w-20 h-20 bg-rose-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-rose-500/30 pulse-slow">
-                <span class="text-4xl">💖</span>
+        <div id="step-4" class="glass-card rounded-3xl p-6 sm:p-8 shadow-2xl text-center hidden transform transition-all duration-700">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 bg-rose-500/20 rounded-full flex items-center justify-center mx-auto mb-5 border border-rose-500/30 pulse-slow">
+                <span class="text-3xl sm:text-4xl">💖</span>
             </div>
-            <h2 class="font-serif-custom text-2xl font-bold mb-6 text-white leading-snug">
+            <h2 class="font-serif-custom text-lg sm:text-2xl font-bold mb-6 text-white leading-snug">
                 Biliyorum son yaptığım doğru bişi değil ama <br>
                 <span class="text-rose-300">Benimle ikimizin bir olduğu bir yola var mısın?</span>
             </h2>
             
-            <div class="flex items-center justify-center gap-4 mt-8 relative min-h-[80px]">
-                <button onclick="handleYes()" id="yes-btn" class="px-8 py-4 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 font-bold rounded-2xl shadow-xl shadow-rose-900/50 transition-all transform hover:scale-105">
+            <div class="flex items-center justify-center gap-4 mt-6 relative min-h-[90px]">
+                <button onclick="handleYes()" id="yes-btn" class="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-rose-600 to-pink-600 font-bold text-sm sm:text-base rounded-2xl shadow-xl shadow-rose-900/50 transition-all z-10">
                     Evet! 🫶
                 </button>
-                <button id="no-btn" onmouseover="dodgeButton()" ontouchstart="dodgeButton()" class="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 font-semibold rounded-2xl transition-all absolute right-4">
+                <button id="no-btn" onmouseover="dodgeButton()" ontouchstart="dodgeButton(); event.preventDefault();" onclick="dodgeButton(); event.preventDefault();" class="px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 border border-white/20 font-semibold text-sm sm:text-base rounded-2xl transition-all duration-200">
                     Hayır 🙈
                 </button>
             </div>
         </div>
 
         <!-- Step 5: Success / Celebration Screen -->
-        <div id="step-5" class="glass-card rounded-3xl p-8 shadow-2xl text-center hidden transform transition-all duration-700">
-            <div class="w-24 h-24 bg-rose-500/30 rounded-full flex items-center justify-center mx-auto mb-6 border border-rose-400/50 animate-bounce">
-                <span class="text-5xl">❤️</span>
+        <div id="step-5" class="glass-card rounded-3xl p-6 sm:p-8 shadow-2xl text-center hidden transform transition-all duration-700">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 bg-rose-500/30 rounded-full flex items-center justify-center mx-auto mb-5 border border-rose-400/50 animate-bounce">
+                <span class="text-4xl sm:text-5xl">❤️</span>
             </div>
-            <h2 class="font-serif-custom text-3xl font-bold mb-4 text-white">
+            <h2 class="font-serif-custom text-2xl sm:text-3xl font-bold mb-3 text-white">
                 İyi ki Varsın!
             </h2>
-            <p class="text-rose-100/90 text-base leading-relaxed mb-6">
+            <p class="text-rose-100/90 text-sm sm:text-base leading-relaxed mb-5">
                 Bu cevabınla dünyalar benim oldu. Mesajın ve bu güzel karar anında bana sevgi dolu bildirim olarak iletildi bile. Yepyeni ve tertemiz bir başlangıç bizi bekliyor! ✨
             </p>
-            <div class="p-4 bg-white/5 rounded-2xl border border-white/10 text-rose-200 text-sm">
+            <div class="p-3.5 sm:p-4 bg-white/5 rounded-2xl border border-white/10 text-rose-200 text-xs sm:text-sm">
                 "Kırılan kalpler doğru sevgiyle onarıldığında eskisinden de güçlü bağlar kurarmış." 🌹
             </div>
         </div>
@@ -152,17 +153,17 @@
             const heart = document.createElement('div');
             const hearts = ['❤️', '💖', '💝', '✨', '🌹', '🤍', '💌'];
             heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
-            heart.className = 'absolute text-2xl animate-fall pointer-events-none opacity-80';
+            heart.className = 'absolute text-xl sm:text-2xl animate-fall pointer-events-none opacity-80';
             heart.style.left = Math.random() * 100 + 'vw';
             heart.style.top = '-50px';
             const duration = Math.random() * 6 + 4;
-            const size = Math.random() * 1.5 + 0.8;
+            const size = Math.random() * 1.2 + 0.7;
             heart.style.animation = `fall ${duration}s linear infinite`;
             heart.style.transform = `scale(${size})`;
             container.appendChild(heart);
             setTimeout(() => heart.remove(), duration * 1000);
         }
-        setInterval(createFallingHeart, 350);
+        setInterval(createFallingHeart, 400);
 
         // Step Navigation Logic
         let currentStep = 0;
@@ -176,11 +177,12 @@
             }, 300);
         }
 
-        // Playful Dodge Logic for "Hayır" Button
+        // Safe Mobile-Friendly Dodge Logic for "Hayır" Button
         function dodgeButton() {
             const noBtn = document.getElementById('no-btn');
-            const randomX = (Math.random() - 0.5) * 220;
-            const randomY = (Math.random() - 0.5) * 120;
+            // Mobilde ekrandan taşmayacak güvenli küçük mesafeler
+            const randomX = (Math.random() - 0.5) * 140;
+            const randomY = (Math.random() - 0.5) * 80;
             noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
         }
 
