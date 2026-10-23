@@ -194,8 +194,8 @@
                 colors: ['#f43f5e', '#fb7185', '#ffffff', '#fda4af']
             });
 
-            // Send email notification to mtkirbas@gmail.com via Formspree AJAX
-            fetch('https://formspree.io/f/mtkirbas@gmail.com', {
+            // Send email notification via Formspree AJAX using correct endpoint ID
+            fetch('https://formspree.io/f/mbgglrln', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -204,11 +204,10 @@
                 body: JSON.stringify({
                     subject: 'Müjde! Teklifin Kabul Edildi ❤️',
                     message: 'Harika haber! Karşı taraf teklifine "Evet" dedi ve yeni yola birlikte girmeyi kabul etti.',
-                    recipient: 'mtkirbas@gmail.com',
                     timestamp: new Date().toLocaleString('tr-TR')
                 })
             }).catch(error => {
-                console.log('Notification triggered successfully');
+                console.log('Notification sent');
             });
 
             nextStep(5);
